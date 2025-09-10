@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Highway Rasoi - Menu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Motion Border CSS */
+    .motion-border {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem; /* same as rounded-lg */
+      padding: 3px; /* border thickness */
+    }
+
+    .motion-border::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(
+        #ff0000,
+        #ff9900,
+        #ffff00,
+        #33cc33,
+        #3399ff,
+        #cc33ff,
+        #ff0000
+      );
+      animation: spin 4s linear infinite;
+      z-index: 0;
+    }
+
+    .motion-border > div {
+      position: relative;
+      background: white;
+      border-radius: 0.75rem;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-red-600 text-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      
+      <!-- Logo + Title -->
+      <div class="flex items-center space-x-3">
+        <img src="/HTML/photos/restaurant logo.jpg" alt="The Highway Rasoi Logo" class="h-12 w-auto rounded-lg">
+        <h1 class="text-2xl font-bold">The Highway Rasoi</h1>
+      </div>
+
+      <!-- Search -->
+      <input id="search" type="text" placeholder="Search dishes..." 
+             class="p-2 rounded text-gray-800 w-60">
+    </div>
+  </header>
+
+  <!-- Filters -->
+  <div class="max-w-6xl mx-auto flex flex-wrap gap-2 justify-center p-4">
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="all">All</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Paneer">Paneer</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Vegetable(Dry)">Vegetable(Dry)</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Vegetable(Gravy)">Vegetable(Gravy)</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Dal">Dal</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Rice">Rice</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Chinese Starters">Chinese Starters</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Starters">Starters</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Drinks">Drinks</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Roti">Roti/Paratha</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Salad">Salad</button>
+    <button class="filter-btn bg-gray-200 hover:bg-red-500 hover:text-white px-4 py-2 rounded" data-category="Raita">Raita</button>
+  </div>
+
+  <!-- Menu Grid -->
+  <main id="menu" class="max-w-6xl mx-auto grid sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
+    <!-- JavaScript will inject menu items here -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-4 mt-6">
+    <p>📍 Khairabad Awadh, Near Railway Station (150m)</p>
+    <p>📞 9455819519</p>
+    <p>Follow us on 
+      <a href="https://www.instagram.com/nh24thehighwayrasoi/" target="_blank" class="underline">Instagram</a>
+    </p>
+  </footer>
+  
+
+  <script>
+    const menuItems = [
+      { name: "Paneer Bhurji", price: "Half : ₹140", category: "Paneer" },
+      { name: "Matar Paneer", price: "Half : ₹120", category: "Paneer" },
+      { name: "Kadhai Paneer", price: "Half : ₹140", category: "Paneer" },
+      { name: "Paneer Butter Masala", price: "Half : ₹140", category: "Paneer" },
+      { name: "Handi Paneer", price: "Half : ₹140", category: "Paneer" },
+      { name: "Paneer Do Pyaja", price: "Half : ₹140", category: "Paneer" },
+      { name: "Paneer Tikka Masala", price: "Half : ₹170", category: "Paneer" },
+      { name: "Shahi Paneer", price: "Half : ₹140", category: "Paneer" },
+      { name: "Paneer Kaali Mirch", price: "Half : ₹140", category: "Paneer" },
+      { name: "Palak Paneer", price: "Half : ₹110", category: "Paneer" },
+
+      { name: "Plain Rice", price: "Half : ₹50", category: "Rice" },
+      { name: "Jeera Rice", price: "Half : ₹60", category: "Rice" },
+      { name: "Matar Pulao", price: "Half : ₹70", category: "Rice" },
+      { name: "Veg Pulao", price: "Half : ₹80", category: "Rice" },
+      
+      { name: "Honey Chilli Potato", price: "₹120", category: "Chinese Starters" },
+      { name: "Veg Manchurian (Dry)", price: "₹140", category: "Chinese Starters" },
+      { name: "Veg Manchurian (Gravy)", price: "₹160", category: "Chinese Starters" },
+      { name: "Paneer Chili (Dry)", price: "₹140", category: "Chinese Starters" },
+      { name: "Paneer Chili (Gravy)", price: "₹160", category: "Chinese Starters" },
+      { name: "Veg Fried Rice", price: "₹120", category: "Chinese Starters" },
+      { name: "Paneer Fried Rice", price: "₹140", category: "Chinese Starters" },
+      { name: "Plain Maggi", price: "₹40", category: "Chinese Starters" },
+      { name: "Masala Maggi", price: "₹60", category: "Chinese Starters" },
+      { name: "Veg Maggi", price: "₹60", category: "Chinese Starters" },
+      { name: "Paneer Maggi", price: "₹70", category: "Chinese Starters" },
+
+      { name: "French Fries", price: "₹70", category: "Starters" },
+      { name: "Pyaaj Pakodi", price: "₹70", category: "Starters" },
+      { name: "Mix Pakoda", price: "₹80", category: "Starters" },
+      { name: "Paneer Pakoda", price: "₹90", category: "Starters" },
+      { name: "Paneer Tikka", price: "₹150", category: "Starters" },
+      { name: "Fry Papad", price: "₹20", category: "Starters" },
+      { name: "Roasted Papad", price: "₹20", category: "Starters" },
+      { name: "Masala Papad", price: "₹30", category: "Starters" },
+
+      { name: "Tandoori Roti", price: "₹7", category: "Roti" },
+      { name: "Butter Tandoori Roti", price: "₹10", category: "Roti" },
+      { name: "Plain Naan", price: "₹20", category: "Roti" },
+      { name: "Butter Naan", price: "₹25", category: "Roti" },
+      { name: "Lahsun Naan", price: "₹25", category: "Roti" },
+      { name: "Laccha Paratha", price: "₹25", category: "Roti" },
+      { name: "Missi Roti", price: "₹20", category: "Roti" },
+      { name: "Aloo Kulcha", price: "₹50", category: "Roti" },
+      { name: "Paneer Kulcha", price: "₹70", category: "Roti" },
+      { name: "Mix Kulcha", price: "₹60", category: "Roti" },
+      { name: "Aloo Paratha", price: "₹50", category: "Roti" },
+      { name: "Paneer Paratha", price: "₹70", category: "Roti" },
+      { name: "Mix Paratha", price: "₹60", category: "Roti" },
+      { name: "Tava Roti", price: "₹10", category: "Roti" },
+
+      { name: "Water Bottle", price: "MRP", category: "Drinks" },
+      { name: "Chai", price: "₹10", category: "Drinks" },
+      { name: "Kulhad Chai", price: "₹15", category: "Drinks" },
+      { name: "Coffee", price: "₹30", category: "Drinks" },
+      { name: "Cold Drink", price: "MRP", category: "Drinks" },
+      { name: "Nimbu Paani", price: "₹20", category: "Drinks" },
+      { name: "Nimbu Soda(Sweet and Salty)", price: "₹35", category: "Drinks" },
+
+      { name: "Green Salad", price: "₹45", category: "Salad" },
+      { name: "Achari Lachcha Onion", price: "₹30", category: "Salad" },
+      { name: "Kachumber Salad", price: "₹60", category: "Salad" },
+      { name: "Kheera Salad", price: "₹30", category: "Salad" },
+      { name: "Aaloo Chat", price: "₹80", category: "Salad" },
+
+      { name: "Plain Dahi", price: "₹40", category: "Raita" },
+      { name: "Plain Raita", price: "₹60", category: "Raita" },
+      { name: "Pyaaj Tamatar Raita", price: "₹80", category: "Raita" },
+      { name: "Boondi Raita", price: "₹80", category: "Raita" },
+      { name: "Kheera Raita", price: "₹80", category: "Raita" },
+      { name: "Mix Raita", price: "₹90", category: "Raita" },
+
+      { name: "Aloo Matar", price: "Half : ₹90", category: "Vegetable(Gravy)" },
+      { name: "Aloo Tamatar", price: "Half : ₹80", category: "Vegetable(Gravy)" },
+      { name: "Dum Aloo Banarasi", price: "Half : ₹110", category: "Vegetable(Gravy)" },
+      { name: "Veg Kofta", price: "Half : ₹140", category: "Vegetable(Gravy)" },
+      { name: "Gobhi Matar", price: "Half : ₹100", category: "Vegetable(Gravy)" },
+      { name: "Shimla Aloo", price: "Half : ₹80", category: "Vegetable(Gravy)" },
+      { name: "Sev Bhaji", price: "Half : ₹80", category: "Vegetable(Gravy)" },
+
+      { name: "Mix Veg", price: "Half : ₹100", category: "Vegetable(Dry)" },
+      { name: "Mix Veg Handi", price: "Half : ₹110", category: "Vegetable(Dry)" },
+      { name: "Khada Masala Aloo", price: "Half : ₹70", category: "Vegetable(Dry)" },
+      { name: "Gobhi Aloo Matar", price: "Half : ₹80", category: "Vegetable(Dry)" },
+      { name: "Jeera Aloo", price: "Half : ₹70", category: "Vegetable(Dry)" },
+      { name: "Achari Aloo", price: "Half : ₹70", category: "Vegetable(Dry)" },
+      { name: "Mirch Aloo", price: "Half : ₹70", category: "Vegetable(Dry)" },
+
+      { name: "Arhar Dal Tadka", price: " Half : ₹70", category: "Dal" }, 
+      { name: "Arhar Dal Fry", price: " Half : ₹90", category: "Dal" },
+      { name: "Punjabi Dal Tadka", price: "Half : ₹100", category: "Dal" },
+      { name: "Dal Makhni", price: "Half : ₹120", category: "Dal" },
+      { name: "Handi Dal", price: "Half : ₹100", category: "Dal" },
+    ];
+
+    const menuContainer = document.getElementById("menu");
+    const searchInput = document.getElementById("search");
+    const filterBtns = document.querySelectorAll(".filter-btn");
+
+    function displayMenu(items) {
+      menuContainer.innerHTML = "";
+      if (items.length === 0) {
+        menuContainer.innerHTML = `<p class="text-center col-span-full">No items found.</p>`;
+        return;
+      }
+      items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "motion-border"; 
+        card.innerHTML = `
+          <div class="p-4 hover:shadow-xl transition flex flex-col items-center justify-center rounded-lg">
+            <h3 class="text-lg font-semibold">${item.name}</h3>
+            <p class="text-gray-600">${item.category}</p>
+            <p class="text-red-600 font-bold">${item.price}</p>
+          </div>
+        `;
+        menuContainer.appendChild(card);
+      });
+    }
+
+    // Initial display
+    displayMenu(menuItems);
+
+    // Search functionality
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value.toLowerCase();
+      const filtered = menuItems.filter(item => item.name.toLowerCase().includes(query));
+      displayMenu(filtered);
+    });
+
+    // Filter buttons
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const category = btn.getAttribute("data-category");
+        if (category === "all") {
+          displayMenu(menuItems);
+        } else {
+          const filtered = menuItems.filter(item => item.category === category);
+          displayMenu(filtered);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
